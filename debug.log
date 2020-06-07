@@ -1,0 +1,34 @@
+[0519/172822.770:ERROR:settings.cc(320)] Settings magic is not 1129342067
+[0522/200240.252:ERROR:settings.cc(320)] Settings magic is not 1129342067
+[0522/200240.276:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0522/214133.416:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0523/023101.028:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0523/122619.938:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0523/131813.434:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0530/202919.391:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0530/203919.426:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0530/203919.478:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0530/204419.396:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0601/071109.429:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0601/072109.455:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0601/072109.456:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0601/072952.393:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0601/073952.809:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0601/073952.915:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0601/083503.331:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0601/085058.536:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0601/090558.935:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0601/092059.054:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0601/093559.057:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0601/095059.058:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0601/100559.059:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0601/130432.319:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0601/131932.320:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0601/133432.321:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0602/192447.729:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0604/070216.899:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0606/080205.970:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0606/081206.035:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0606/081206.036:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0606/081706.252:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0607/062011.782:ERROR:crash_report_database_win.cc(428)] unexpected header

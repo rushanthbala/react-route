@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// / import Sample from './components/sample';
-import Nav from './page/nav';
+// import  Username from './pages/username'
+import  App from './pages/App'
 
-ReactDOM.render(<Nav/>,document.getElementById('root'))
+
+ReactDOM.render(<App/>,document.getElementById('root'))
 
 

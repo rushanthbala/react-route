@@ -1,18 +1,35 @@
 import React, { Component } from 'react';
-// import {Button,ThemeProvider} from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import PublicLayout from '../components/layouts/publicLayout';
+import logo from '../Assets/Complete_your_account.png'
+import FormControl from '@material-ui/core/FormControl';
+import BootstrapInput from '../components/layouts/form'
+import {Button} from '@material-ui/core';
 
 
 class Username extends Component {
     state = {  }
     render() { 
         return (
-            <div>
-                <Grid container spacing={0}>
-                  <Grid item xs={6}><Picture/> </Grid> 
-                  <Grid  item xs={6}><Sign/> </Grid>
+            <PublicLayout para='Our platform is capable of communicating data in various graphical forms
+             for better understanding and rational decision making.'
+                          logo={logo}
+                          header='Make decisions using multiple visualizations'>
+                <br/>
+
+                <Grid container xs={12}  >
+               
+                        <Grid xs={3} item/>
+                        
+                        <Grid xs={6} item>
+                            <UsernameInput/>
+                       <br/><br/> 
+                <Button fullWidth variant="contained" color="primary">NEXT</Button>
+                <p className='paragrape' style={{textAlign:'center'}}  >Already have an account?  <a href="">SIGN IN</a></p>
+                            </Grid>       
+                        <Grid xs={3} item/>
                 </Grid>
-            </div>
+           </PublicLayout>
           );
     }
 }
@@ -20,49 +37,48 @@ class Username extends Component {
 export default Username;
 
 
+export  function UsernameInput() {
 
+    return (
+      
+        <FormControl fullWidth >
+            <h1 className='create' >Create your account</h1>
+          <label shrink htmlFor="bootstrap-input" className='label' >
+          First name
+          </label>
+          <BootstrapInput  id="username"  placeholder='First name' defaultValue="Gobinthiran"/>
 
-class Picture extends Component {
-    state = {  }
-    render() { 
-        return ( 
-        <div>
-                <Grid  container  direction="row"  justify="center" >
-                <Grid  item spacing={2}>
-                    <img style={{marginTop:'147px'}} src='Iphone Xs-Artwork-Project_Managers.png' className=" img" alt="logo" />
-                    <div>
-                    <h1 style={{
-                        textAlign: 'center',
-                        font:' Bold 26px/40px PT Sans',
-                        letterSpacing: '0px',
-                        color: '#181D33',
-                        marginTop:31,
-                        opacity: 1}}>
-                    Standard Catalogued Data</h1>
-                                       </div>
-                   <p></p>
-                </Grid>
-                <p style={{
-                        textAlign: 'center',
-                        font: 'Regular 15px/19px PT Sans',
-                        letterSpacing:' 0px',
-                        color:' #181D33',
-                        opacity:' 0.48',
-                    }}>Large volumes of diverse data systematically categorized based on distinct criteria for easy and effective filtering of the necessary information.</p>
-                </Grid>
-      </div>          
-         );
-    }
-}
- 
-class Sign extends Component {
-    state = {  }
-    render() { 
-        return ( 
-            <div>
-                okoko
-            </div>
-         );
-    }
-}
- 
+          <br/>
+          <label shrink htmlFor="bootstrap-input" className='label'>
+          Last name
+          </label>
+          <BootstrapInput  id="password" placeholder='Typed text' defaultValue="Kulendran"/>
+          <br/>
+          <label shrink htmlFor="bootstrap-input" className='label'>
+          Organization
+          </label>
+          <BootstrapInput  id="username"  placeholder='Place holder' defaultValue="Aatral Organization"/>
+
+          <br/>
+          <label shrink htmlFor="bootstrap-input" className='label'>
+          Email
+          </label>
+          <BootstrapInput  id="password" placeholder='Typed text' defaultValue="gobinthiran@huex.studio" />
+          <br/>
+          <label shrink htmlFor="bootstrap-input" className='label'>
+          Phone number
+          </label>
+          <BootstrapInput  id="username"  placeholder='Enter your phone number' />
+
+          <br/>
+          <label shrink htmlFor="bootstrap-input" className='label'>
+            Password
+          </label>
+          <BootstrapInput  id="password" placeholder='Typed text' />
+
+         
+        </FormControl>
+       
+      
+    );
+  }

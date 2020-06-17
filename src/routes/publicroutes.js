@@ -4,6 +4,9 @@ import Profile from '../pages/profile';
 import Completed from'../pages/completed';
 import Failed from'../pages/failed';
 import ForgetPassword from'../pages/forgetpassword';
+import ConfirmationEmail from'../pages/confirmationemail';
+import ChangePassword from'../pages/changepassword';
+
 
 
 const publicRoutes = [
@@ -33,8 +36,18 @@ const publicRoutes = [
         exact:true
     },
     {
-        path:"/ForgetPassword",
+        path:"/forgetpassword",
         component:ForgetPassword,
+        exact:true
+    },
+    {
+        path:"/confirmationemail",
+        component:ConfirmationEmail,
+        exact:true
+    },
+    {
+        path:"/changepassword",
+        component:ChangePassword,
         exact:true
     },
 ]

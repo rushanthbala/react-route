@@ -5,24 +5,29 @@ import logo from '../Assets/Iphone_Xs-Artwork-Project_Managers.png'
 import logoName from '../Assets/Icons/1280px-Namecheap_Logo.svg.png'
 import { Grid } from '@material-ui/core';
 import '../css/style.css'
-  import FormControl from '@material-ui/core/FormControl';
-  import BootstrapInput from '../components/layouts/form'
+import FormControl from '@material-ui/core/FormControl';
+import BootstrapInput from '../components/layouts/form'
+import TextField from '@material-ui/core/TextField';
+
+
 
 class ForgetPassword extends Component {
-   
     render() { 
         return ( <div style={{width:'100%'}} >
-            <PublicLayout para='Work faster and smarter with our readily 
-            updated datasets at your disposal. We deliver regulated data
-             for better performance.'
+            <PublicLayout para='We are dedicated to delivering data 
+            that defines your purpose. Our vault holds significant data to cater your requirements.'
                           logo={logo}
-                          header='Instant Datasets at your fingertips'>
+                          header='We help you to archive your goals'>
                 <br/>
-                                <img src={logoName} alt="" srcset="" className='nameCheap' /><br/>
+                               <br/>
 
-                <Grid container xs={12}  >
+                <Grid container xs={12}  style={{width:'100%' ,height:'100%'}} alignItems='center'  >
                         <Grid xs={3} item/>
-                        <Grid xs={6} item>
+                        <Grid xs={6} item  >
+                        <h1 className='head'>Forgot password</h1>
+                       
+                            <ForgetPasswordInput/>
+                            <Button fullWidth color='primary' variant='contained'>RESET PASSWORD</Button>
                         </Grid>       
                         <Grid xs={3} item/>
                 </Grid>
@@ -35,13 +40,19 @@ class ForgetPassword extends Component {
 export default ForgetPassword;
 
 
-export  function CustomizedInputs() {
+export  function ForgetPasswordInput() {
 
   return (
     
-      <FormControl fullWidth >
-       
-      </FormControl>
+    <FormControl fullWidth >
+    <label shrink htmlFor="bootstrap-input" className='label'>
+    Email
+    </label>
+    <BootstrapInput  id="username"  placeholder='Enter your email'/>
+    <br/>
+    
+   
+  </FormControl>
      
     
   );

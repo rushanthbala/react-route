@@ -2,7 +2,7 @@
     import PublicLayout from '../components/layouts/publicLayout';
     import { Button } from '@material-ui/core';
     import logo from '../Assets/Iphone_Xs-Artwork-Project_Managers.png'
-    import logoName from '../Assets/Icons/1280px-Namecheap_Logo.svg.png'
+    import logoName from '../Assets/Icons/Approval.svg'
     import { Grid } from '@material-ui/core';
     import '../css/style.css'
     import FormControl from '@material-ui/core/FormControl';
@@ -13,20 +13,20 @@ class Completed extends Component {
     render() {
         return (<div style={{ width: '100%' }} >
             <PublicLayout 
-                para='Large volumes of diverse data systematically categorized
-                     based on distinct criteria for easy and effective filtering of the necessary
-                     information.'
+                para='Streaming highly reliable and 
+                accurate qualitative data from trusted sources for
+                 lucid analysis and effective decision making.'
                 logo={logo}
-                header='Standard Catalogued Data'>
+                header='Integrous data collections'>
                 <br />
                 <img src={logoName} alt="" srcset="" className='nameCheap' /><br />
 
                 <Grid container xs={12}  >
                     <Grid xs={3} item />
-                    <Grid xs={6} item><CustomizedInputs />
-                        <p className='paragrape'>  Forgot password? <a href="#">RESET</a></p>
-                        <Button fullWidth variant="contained" color="primary">SIGN IN</Button>
-                        <p className='paragrape' style={{ textAlign: 'center' }}  >Don’t you have an account? <a href="">SIGNUP</a></p>
+                    <Grid xs={6} item>
+                      <h1 className='head' >Your account completed!</h1>
+                      <p className='paragrape' >You can now access your dashboard using your credentials.</p>
+                      <Button fullWidth  color="primary" variant="contained" > Go to dashboard</Button>
                     </Grid>
                     <Grid xs={3} item />
                 </Grid>

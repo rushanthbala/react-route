@@ -8,10 +8,10 @@ import '../css/style.css'
   import FormControl from '@material-ui/core/FormControl';
   import BootstrapInput from '../components/layouts/form'
   import DeleteIcon from '../Assets/Icons/camera.svg';
-
+  import Box from '@material-ui/core/Box';
+  
 
 class Profile extends Component {
-   
     render() { 
         return ( <div style={{width:'100%'}} >
             <PublicLayout para='Streaming highly reliable and accurate qualitative 
@@ -19,21 +19,22 @@ class Profile extends Component {
                           logo={logo}
                           header='Integrous data collections'>
                 <br/>
-                <Grid container xs={12}  >
-               
+                <Grid container xs={12} 
+                      display="flex"
+                      style={{ height: '100%'}} 
+                      justify='center' 
+                      alignItems='center' >
                         <Grid xs={3} item/>
                         <Grid xs={6} item justify='center'>
-                            <h1 className=''>Set profile picture</h1>
-                            <img src={logoName} alt="" srcset="" className='nameCheap'  /><br/>
+                            <h1 className='header'>Set profile picture</h1>
+                            <img src={logoName} alt="" srcset="" className='' style={{textAlign:'center'}}/><br/>
                             <Button
-                                variant="contained"
                                 color="secondary"
                                 className=''
                                 // // // /// /// // / /// // /startIcon={DeleteIcon}
                             > button
                                 </Button><br/><br/>
                                 <Button 
-                                variant="contained"
                                 fullWidth
                                 >COMPLETE</Button>
                          </Grid>       

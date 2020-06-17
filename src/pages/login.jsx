@@ -21,13 +21,11 @@ class Login extends Component {
                                 <img src={logoName} alt="" srcset="" className='nameCheap' /><br/>
 
                 <Grid container xs={12}  >
-               
                         <Grid xs={3} item/>
-                        
                         <Grid xs={6} item><CustomizedInputs/>
-                          <p className='paragrape'>  Forgot password? <a href="#">RESET</a></p> 
-                  <Button fullWidth variant="contained" color="primary">SIGN IN</Button>
-                  <p className='paragrape' style={{textAlign:'center'}}  >Don’t you have an account? <a href="">SIGNUP</a></p>
+                                  <p className='paragrape'>  Forgot password? <a href="#">RESET</a></p> 
+                          <Button fullWidth variant="contained" color="primary">SIGN IN</Button>
+                          <p className='paragrape' style={{textAlign:'center'}}  >Don’t you have an account? <a href="">SIGNUP</a></p>
                             </Grid>       
                         <Grid xs={3} item/>
                 </Grid>

@@ -74,11 +74,8 @@ export  function UsernameInput() {
           <label shrink htmlFor="bootstrap-input" className='label'>
             Password
           </label>
-          <BootstrapInput  id="password" placeholder='Typed text' />
-
-         
+          <BootstrapInput  id="password" placeholder='Typed text' />  
         </FormControl>
        
-      
     );
   }

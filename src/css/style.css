@@ -33,3 +33,16 @@
     color: #181D33;
     opacity: 1;
 }
+.header{
+    font: Bold 32px/40px PT Sans;
+    letter-spacing: 0px;
+    color: #181D33;
+    opacity: 1;
+}
+.head{
+    text-align: center;
+    font: Bold 24px/40px PT Sans;
+    letter-spacing: 0px;
+    color: #181D33;
+    opacity: 1;
+}

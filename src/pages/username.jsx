@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import PublicLayout from '../components/layouts/publicLayout';
-import logo from '../Assets/Complete_your_account.png'
+import logo from '../assets/image/Complete_your_account.png'
 import FormControl from '@material-ui/core/FormControl';
-import BootstrapInput from '../components/layouts/form'
+import BootstrapInput from '../components/forms/loginForm'
 import {Button} from '@material-ui/core';
-
+import UsernameInput from '../components/forms/usernameForm'
 
 class Username extends Component {
+  
     state = {  }
     render() { 
         return (
@@ -35,47 +36,3 @@ class Username extends Component {
 }
 
 export default Username;
-
-
-export  function UsernameInput() {
-
-    return (
-      
-        <FormControl fullWidth >
-            <h1 className='create' >Create your account</h1>
-          <label shrink htmlFor="bootstrap-input" className='label' >
-          First name
-          </label>
-          <BootstrapInput  id="username"  placeholder='First name' defaultValue="Gobinthiran"/>
-
-          <br/>
-          <label shrink htmlFor="bootstrap-input" className='label'>
-          Last name
-          </label>
-          <BootstrapInput  id="password" placeholder='Typed text' defaultValue="Kulendran"/>
-          <br/>
-          <label shrink htmlFor="bootstrap-input" className='label'>
-          Organization
-          </label>
-          <BootstrapInput  id="username"  placeholder='Place holder' defaultValue="Aatral Organization"/>
-
-          <br/>
-          <label shrink htmlFor="bootstrap-input" className='label'>
-          Email
-          </label>
-          <BootstrapInput  id="password" placeholder='Typed text' defaultValue="gobinthiran@huex.studio" />
-          <br/>
-          <label shrink htmlFor="bootstrap-input" className='label'>
-          Phone number
-          </label>
-          <BootstrapInput  id="username"  placeholder='Enter your phone number' />
-
-          <br/>
-          <label shrink htmlFor="bootstrap-input" className='label'>
-            Password
-          </label>
-          <BootstrapInput  id="password" placeholder='Typed text' />  
-        </FormControl>
-       
-    );
-  }

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import PublicLayout from '../components/layouts/publicLayout';
 import {Button} from '@material-ui/core';
-import logo from '../Assets/Set_profile_picture.png'
-import logoName from '../Assets/Profile.png'
+import logo from '../assets/image/Set_profile_picture.png'
+import logoName from '../assets/image/Profile.png'
 import { Grid } from '@material-ui/core';
 import '../css/style.css'
   import FormControl from '@material-ui/core/FormControl';
-  import BootstrapInput from '../components/layouts/form'
-  import DeleteIcon from '../Assets/Icons/camera.svg';
-  import Box from '@material-ui/core/Box';
+  import BootstrapInput from '../components/forms/loginForm'
+  // import DeleteIcon from '../Assets/image/Icons/camera.svg';
+  // import Box from '@material-ui/core/Box';
   
 
 class Profile extends Component {

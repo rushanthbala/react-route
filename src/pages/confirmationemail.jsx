@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PublicLayout from '../components/layouts/publicLayout';
 import { Button } from '@material-ui/core';
-import logo from '../Assets/a.png'
-import logoName from '../Assets/Icons/Approval.svg'
+import logo from '../assets/image/a.png'
+import logoName from '../assets/Icons/Approval.svg'
 import { Grid } from '@material-ui/core';
 import '../css/style.css'
 import FormControl from '@material-ui/core/FormControl';
-import BootstrapInput from '../components/layouts/form'
+import BootstrapInput from '../components/forms/loginForm'
 
 
 class ConfirmationEmail extends Component {

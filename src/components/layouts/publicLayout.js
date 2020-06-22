@@ -26,8 +26,8 @@ function PublicLayout(props) {
     const classes = useStyles(props);
 
     return (
-        <Grid xs={12} container  >  
-            <Grid item xs={6} className={classes.paper} >
+        <Grid xs={12} container >  
+            <Grid item xs={6} className={classes.paper} style={{width:'100vh' , height:'100vh', alignItems:'center'}}  >
               <img src={props.logo} alt="noda" />  
               <h1> {props.header} </h1>
               <p className={classes.para} >{props.para} </p>
@@ -36,7 +36,7 @@ function PublicLayout(props) {
               {props.children} 
             </Grid>
         </Grid> 
-           )
+           ) 
 }
 
 export default PublicLayout

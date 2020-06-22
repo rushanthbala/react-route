@@ -11,8 +11,7 @@ const BootstrapInput = withStyles((theme: Theme) =>
   createStyles({
     root: {
       'label + &': {
-        marginTop: '0px',
-          
+        marginTop: '0px',  
       },
     },
     inputPlaceholder: { /* Internet Explorer 10-11 */

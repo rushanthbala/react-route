@@ -9,7 +9,8 @@ import {
   import {Button} from '@material-ui/core';
  import { Grid } from '@material-ui/core';
  import FormControl from '@material-ui/core/FormControl';
-
+ import { Formik, Form, Field } from 'formik';
+ import * as Yup from 'yup';
 
  
  const BootstrapInput = withStyles((theme: Theme) =>
@@ -45,48 +46,116 @@ import {
  }),
 )(InputBase);
 
+const UserNameSchema = Yup.object().shape({
+  firstName: Yup.string()
+  .min(2, 'Too Short!')
+  .max(50, 'Too Long!')
+  .required('Required'),
+  LasstName: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+  Organization: Yup.string()
+      .min(2,'Too short!')
+      .max(50,'Too Long!')
+      .required('Required'),
+  Email: Yup.string()
+    .min('23','small')
+    .required('Required'),
+  PhoneNumber : Yup.string()
+    .min(10,'small')
+    .max(20,'Long')
+    .required('Required'),
+  password: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required')
+});
 
 
 
  function UsernameInput() {
 
     return (
-      
+        // <FormControl fullWidth >
+        //     <h1 className='create' >Create your account</h1>
+        //   <label shrink htmlFor="bootstrap-input" className='label' >
+        //   First name
+        //   </label>
+        //   <BootstrapInput  id="username"  placeholder='First name' defaultValue="Gobinthiran"/>
+
+        //   <br/>
+        //   <label shrink htmlFor="bootstrap-input" className='label'>
+        //   Last name
+        //   </label>
+        //   <BootstrapInput  id="password" placeholder='Typed text' defaultValue="Kulendran"/>
+        
+        //   <br/>
+        //   <label shrink htmlFor="bootstrap-input" className='label'>
+        //   Organization
+        //   </label>
+        //   <BootstrapInput  id="username"  placeholder='Place holder' defaultValue="Aatral Organization"/>
+
+        //   <br/>
+        //   <label shrink htmlFor="bootstrap-input" className='label'>
+        //   Email
+        //   </label>
+        //   <BootstrapInput  id="password" placeholder='Typed text' defaultValue="gobinthiran@huex.studio" />
+        //   <br/>
+        //   <label shrink htmlFor="bootstrap-input" className='label'>
+        //   Phone number
+        //   </label>
+        //   <BootstrapInput  id="username"  placeholder='Enter your phone number' />
+        //   <br/>
+        //   <label shrink htmlFor="bootstrap-input" className='label'>
+        //     Password
+        //   </label>
+        //   <BootstrapInput  id="password" placeholder='Typed text' />  
+        // </FormControl>
         <FormControl fullWidth >
-            <h1 className='create' >Create your account</h1>
-          <label shrink htmlFor="bootstrap-input" className='label' >
-          First name
-          </label>
-          <BootstrapInput  id="username"  placeholder='First name' defaultValue="Gobinthiran"/>
+        <Formik
+            initialValues={{
+            firstName: '',
+            password: '',
+            email: '',
+      }}
+      validationSchema={UserNameSchema}
+      onSubmit={values => {
+          // same shape as initial // values
+        console.log(values);
+      }}
+    >
+      {({ errors, touched }) => (
+        <Form>   
+          {/* <label htmlFor="">username</label> <br/> */}
+            <Field name="firstName"  label= 'username' fullWidth as={TextField}
+             error={errors.firstName} helperText={errors.firstName}/>
+           <br/> <br/>
 
-          <br/>
-          <label shrink htmlFor="bootstrap-input" className='label'>
-          Last name
-          </label>
-          <BootstrapInput  id="password" placeholder='Typed text' defaultValue="Kulendran"/>
-          <br/>
-          <label shrink htmlFor="bootstrap-input" className='label'>
-          Organization
-          </label>
-          <BootstrapInput  id="username"  placeholder='Place holder' defaultValue="Aatral Organization"/>
+          <Field name="firstName"  label= 'username' fullWidth as={TextField}
+             error={errors.firstName} helperText={errors.firstName}/>
+                  
+          <Field name="firstName"  label= 'username' fullWidth as={TextField}
+             error={errors.firstName} helperText={errors.firstName}/>
+                  
+          <Field name="firstName"  label= 'username' fullWidth as={TextField}
+             error={errors.firstName} helperText={errors.firstName}/>
+                  
+          <Field name="firstName"  label= 'username' fullWidth as={TextField}
+             error={errors.firstName} helperText={errors.firstName}/>
+                  
+            {/* <label htmlFor="">Password</label> <br/> */}
+          <Field name="password" label= 'Password' fullWidth as={TextField} type='password'
+          error ={errors.password} helperText={errors.password}/>   
 
-          <br/>
-          <label shrink htmlFor="bootstrap-input" className='label'>
-          Email
-          </label>
-          <BootstrapInput  id="password" placeholder='Typed text' defaultValue="gobinthiran@huex.studio" />
-          <br/>
-          <label shrink htmlFor="bootstrap-input" className='label'>
-          Phone number
-          </label>
-          <BootstrapInput  id="username"  placeholder='Enter your phone number' />
-
-          <br/>
-          <label shrink htmlFor="bootstrap-input" className='label'>
-            Password
-          </label>
-          <BootstrapInput  id="password" placeholder='Typed text' />  
-        </FormControl>
+       
+       
+       
+         <br/>
+        </Form>
+      )}
+    </Formik>  
+   </FormControl> 
        
     );
   }

@@ -51,18 +51,18 @@ const UserNameSchema = Yup.object().shape({
   .min(2, 'Too Short!')
   .max(50, 'Too Long!')
   .required('Required'),
-  LasstName: Yup.string()
+  lastName: Yup.string()
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Required'),
-  Organization: Yup.string()
+  organization: Yup.string()
       .min(2,'Too short!')
       .max(50,'Too Long!')
       .required('Required'),
-  Email: Yup.string()
-    .min('23','small')
+  email: Yup.string()
+    .min('2','small')
     .required('Required'),
-  PhoneNumber : Yup.string()
+  phoneNumber : Yup.string()
     .min(10,'small')
     .max(20,'Long')
     .required('Required'),
@@ -116,8 +116,12 @@ const UserNameSchema = Yup.object().shape({
         <Formik
             initialValues={{
             firstName: '',
-            password: '',
+            lastName:'',
+            organization:'',
             email: '',
+            phoneNumber:'',
+            password: '',
+           
       }}
       validationSchema={UserNameSchema}
       onSubmit={values => {
@@ -128,35 +132,30 @@ const UserNameSchema = Yup.object().shape({
       {({ errors, touched }) => (
         <Form>   
           {/* <label htmlFor="">username</label> <br/> */}
-            <Field name="firstName"  label= 'username' fullWidth as={TextField}
+            <Field name="firstName"  label= 'firstName' fullWidth as={TextField}
              error={errors.firstName} helperText={errors.firstName}/>
            <br/> <br/>
 
-          <Field name="firstName"  label= 'username' fullWidth as={TextField}
-             error={errors.firstName} helperText={errors.firstName}/>
+          <Field name="lastName"  label= 'lastName' fullWidth as={TextField}
+             error={errors.lastName} helperText={errors.lastName}/>
                   
-          <Field name="firstName"  label= 'username' fullWidth as={TextField}
-             error={errors.firstName} helperText={errors.firstName}/>
+          <Field name="organization"  label= 'Organization' fullWidth as={TextField}
+             error={errors.organization} helperText={errors.organization}/>
                   
-          <Field name="firstName"  label= 'username' fullWidth as={TextField}
-             error={errors.firstName} helperText={errors.firstName}/>
+          <Field name="email"  label= 'Email' type="email" fullWidth as={TextField}
+             error={errors.email} helperText={errors.email}/>
                   
-          <Field name="firstName"  label= 'username' fullWidth as={TextField}
-             error={errors.firstName} helperText={errors.firstName}/>
+          <Field name="phoneNumber"  label= 'PhoneNumber' fullWidth as={TextField}
+             error={errors.phoneNumber} helperText={errors.phoneNumber}/>
                   
             {/* <label htmlFor="">Password</label> <br/> */}
           <Field name="password" label= 'Password' fullWidth as={TextField} type='password'
-          error ={errors.password} helperText={errors.password}/>   
-
-       
-       
-       
-         <br/>
+          error ={errors.password} helperText={errors.password}/>    
+             <br/>
         </Form>
       )}
     </Formik>  
    </FormControl> 
-       
     );
   }
 

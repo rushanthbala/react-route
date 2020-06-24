@@ -48,8 +48,9 @@ const SignupSchema = Yup.object().shape({
 });
 
 const LoginForm = (props) => {
-    const classes = useStyles();
-      return (
+  const classes = useStyles();
+
+  return (
     <Formik
       initialValues={{
         password: "",
@@ -86,6 +87,7 @@ const LoginForm = (props) => {
               helperText={errors.password}
             />
           </Grid>
+
           {/*<Field name="email" type="email" fullWidth*/}
           {/*variant="outlined"/>*/}
           {/*{errors.email && touched.email ? <div>{errors.email}</div> : null}*/}

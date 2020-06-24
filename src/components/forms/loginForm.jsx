@@ -1,27 +1,12 @@
-import {
-    createStyles,
-    Theme,
-    withStyles,
-    makeStyles
-  } from '@material-ui/core/styles';
-import InputBase from '@material-ui/core/InputBase';
-import TextField, { TextFieldProps } from '@material-ui/core/TextField';
-import React, { Component } from 'react';
-import {Button} from '@material-ui/core';
-import { Grid } from '@material-ui/core';
-import FormControl from '@material-ui/core/FormControl';
-import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
-
+import React from "react";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import TextField from "@material-ui/core/TextField";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
-    root: {
-      'label + &': {
-        marginTop: theme.spacing(3),
-        margin:'100px'
-      },
-    },
     forgotText: {
       fontSize: "14px",
       letterSpacing: "0",
@@ -46,66 +31,66 @@ const useStyles = makeStyles((theme) =>
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      margin:' 10px 10px'
     },
-    label:{
-      color:'red',
-      margin:'200px'
-    }
   })
 );
 
-
 const SignupSchema = Yup.object().shape({
-  firstName: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
   password: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required')
+    .min(6, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  email: Yup.string().email("Invalid email").required("Required"),
 });
 
-export  function CustomizedInputs() {
+const LoginForm = (props) => {
   const classes = useStyles();
+
   return (
-      <FormControl fullWidth >
-        <Formik
-            initialValues={{
-            firstName: '',
-            password: '',
-            email: '',
+    <Formik
+      initialValues={{
+        password: "",
+        email: "",
       }}
       validationSchema={SignupSchema}
-      onSubmit={values => {
-          // same shape as initial // values
+      onSubmit={(values) => {
         console.log(values);
       }}
     >
-      {({ errors, touched }) => (
-        <Form className={classes.root}>   
+      {({ errors, touched,setFieldTouched }) => (
+        <Form className={classes.formCart}>
+          <Grid item xs={12} sm={12} md={12} lg={12}>
+            <TextField
+              fullWidth
+              id="email"
+              name="email"
+              label="Email"
+              variant="outlined"
+              error={Boolean(errors.email) && touched.email}
+              onBlur={() => setFieldTouched('email')}
+              helperText={errors.email}
+            />
+          </Grid>
+          <Grid item xs={12} sm={12} md={12} lg={12}>
+            <TextField
+              fullWidth
+              id="password"
+              name="password"
+              label="Password"
+              variant="outlined"
+              error={Boolean(errors.password) && touched.password}
+              onBlur={() => setFieldTouched('password')}
+              helperText={errors.password}
+            />
+          </Grid>
+
+          {/*<Field name="email" type="email" fullWidth*/}
+          {/*variant="outlined"/>*/}
+          {/*{errors.email && touched.email ? <div>{errors.email}</div> : null}*/}
          
-          <Field className={classes.Field} name="firstName"  label= 'username' fullWidth as={TextField}
-           variant='outlined'
-           error={errors.firstName && touched.firstName} helperText={errors.firstName  }  />
-          {errors.firstName && touched.firstName ? (
-            <div></div>
-          ) : null} 
-         
-          <Field className={classes.Field} name="password" label= 'Password' fullWidth as={TextField}
-           type='password'  variant='outlined'
-          // onBlur='()=> {
-          //   setOpen(false);
-          // }'
-          error ={errors.password && touched.password } helperText={errors.password}/>
-          {errors.password && touched.password ? (
-            <div></div>
-          ) : null} 
         </Form>
       )}
-    </Formik>  
-   </FormControl>    
+    </Formik>
   );
-}
-export default CustomizedInputs;
+};
+export default LoginForm;

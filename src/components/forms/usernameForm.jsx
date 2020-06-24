@@ -1,162 +1,164 @@
-import {
-    createStyles,
-    Theme,
-    withStyles,
-  } from '@material-ui/core/styles';
-  import InputBase from '@material-ui/core/InputBase';
-  import TextField, { TextFieldProps } from '@material-ui/core/TextField';
-  import React from 'react';
-//   import {Button} from '@material-ui/core';
-//  import { Grid } from '@material-ui/core';
- import FormControl from '@material-ui/core/FormControl';
- import { Formik, Form, Field } from 'formik';
- import * as Yup from 'yup';
+import React from "react";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import TextField from "@material-ui/core/TextField";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
 
- 
-const BootstrapInput = withStyles((theme: Theme) =>
+const useStyles = makeStyles((theme) =>
   createStyles({
-    root: {
-      'label + &': {
-        marginTop: '0px',
-          
-      },
+    forgotText: {
+      fontSize: "14px",
+      letterSpacing: "0",
+      fontWeight: 400,
+      color: "#4E598348",
+      paddingBottom: "16px",
     },
-    inputPlaceholder: { /* Internet Explorer 10-11 */
-      color:'#181D333E'
-      },
-    input: {
-      borderRadius: 4,
-      position: 'relative',
-      background:'#FFFFFF 0% 0% noRepeat paddingBox',
-      backgroundColor: theme.palette.common.white,
-      border: '1px solid #ced4da',
-      letterSpacing:'0px',
-      fontSize: 16,
+    apiError: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      color: "#ff1744",
+      fontSize: "14px",
+    },
+    formCart: {
+      maxWidth: '430px',
       width: '100%',
-      padding: '10px 12px',
-      opacity: 1,
-      color:'#181D33',
-      // Use the system font instead of the default Roboto font.
-      font:' Regular 14px/18px PT Sans',
-      '&:focus': {
-        boxShadow: `0px 0px 8px #0000000A`,
-        borderColor:'  0.75px solid #3F44511F',
-      },
     },
-  }),
-  )(InputBase);
+    Field: {
+      width: "100%",
+      height: "100%",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+  })
+);
 
-const UserNameSchema = Yup.object().shape({
-  firstName: Yup.string()
-  .min(2, 'Too Short!')
-  .max(50, 'Too Long!')
-  .required('Required'),
-  lastName: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
-  organization: Yup.string()
-      .min(2,'Too short!')
-      .max(50,'Too Long!')
-      .required('Required'),
-  email: Yup.string()
-    .min('2','small')
-    .required('Required'),
-  phoneNumber : Yup.string()
-    .min(10,'small')
-    .max(20,'Long')
-    .required('Required'),
+const SignupSchema = Yup.object().shape({
+  firstName:Yup.string()
+    .min(6, " 11Too Short!")
+    .max(50, "Too Long!"),
+  lastName:Yup.string()
+    .min(6, "222Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+    organization :Yup.string()
+    .min(6, "333Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
   password: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required')
+    .min(6, "444Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  phoneNumber:Yup.string()
+    .min(6, "555Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  email: Yup.string().email("Invalid email").required("Required"),
 });
 
+const UsernameInput = (props) => {
+  const classes = useStyles();
 
-
- function UsernameInput() {
-
-    return (
-        // <FormControl fullWidth >
-        //     <h1 className='create' >Create your account</h1>
-        //   <label shrink htmlFor="bootstrap-input" className='label' >
-        //   First name
-        //   </label>
-        //   <BootstrapInput  id="username"  placeholder='First name' defaultValue="Gobinthiran"/>
-
-        //   <br/>
-        //   <label shrink htmlFor="bootstrap-input" className='label'>
-        //   Last name
-        //   </label>
-        //   <BootstrapInput  id="password" placeholder='Typed text' defaultValue="Kulendran"/>
-        
-        //   <br/>
-        //   <label shrink htmlFor="bootstrap-input" className='label'>
-        //   Organization
-        //   </label>
-        //   <BootstrapInput  id="username"  placeholder='Place holder' defaultValue="Aatral Organization"/>
-
-        //   <br/>
-        //   <label shrink htmlFor="bootstrap-input" className='label'>
-        //   Email
-        //   </label>
-        //   <BootstrapInput  id="password" placeholder='Typed text' defaultValue="gobinthiran@huex.studio" />
-        //   <br/>
-        //   <label shrink htmlFor="bootstrap-input" className='label'>
-        //   Phone number
-        //   </label>
-        //   <BootstrapInput  id="username"  placeholder='Enter your phone number' />
-        //   <br/>
-        //   <label shrink htmlFor="bootstrap-input" className='label'>
-        //     Password
-        //   </label>
-        //   <BootstrapInput  id="password" placeholder='Typed text' />  
-        // </FormControl>
-        <FormControl fullWidth >
-        <Formik
-            initialValues={{
-            firstName: '',
-            lastName:'',
-            organization:'',
-            email: '',
-            phoneNumber:'',
-            password: '',
-           
+  return (
+    <Formik
+      initialValues={{
+        firstName:"",
+        lastName:"",
+        organization:"",
+        password: "",
+        phoneNumber:"",
+        email:"",
       }}
-      validationSchema={UserNameSchema}
-      onSubmit={values => {
-          // same shape as initial // values
+      validationSchema={SignupSchema}
+      onSubmit={(values) => {
         console.log(values);
       }}
     >
-      {({ errors, touched }) => (
-        <Form>   
-          {/* <label htmlFor="">username</label> <br/> */}
-            <Field name="firstName"  label= 'firstName' fullWidth as={TextField}
-             error={errors.firstName} helperText={errors.firstName}/>
-           <br/> <br/>
+      {({ errors, touched,setFieldTouched }) => (
+        <Form className={classes.formCart}>
+          <Grid item xs={12} sm={12} md={12} lg={12}>
+            <TextField
+              fullWidth
+              id="firstName"
+              name="firstName"
+              label="First name"
+              variant="outlined"
+              error={Boolean(errors.firstName) && touched.firstName}
+              onBlur={() => setFieldTouched('firstName')}
+              helperText={errors.firstName}
+            />
+          </Grid>
+          <Grid item xs={12} sm={12} md={12} lg={12}>
+            <TextField
+              fullWidth
+              id="lastName"
+              name="lastName"
+              label="Last name"
+              variant="outlined"
+              error={Boolean(errors.lastName) && touched.lastName}
+              onBlur={() => setFieldTouched('lastName')}
+              helperText={errors.lastName}
+            />
+          </Grid>
+          <Grid item xs={12} sm={12} md={12} lg={12}>
+            <TextField
+              fullWidth
+              id="organization"
+              name="organization"
+              label="Organization"
+              variant="outlined"
+              error={Boolean(errors.organization) && touched.organization}
+              onBlur={() => setFieldTouched('organization')}
+              helperText={errors.organization}
+            />
+          </Grid>
+          <Grid item xs={12} sm={12} md={12} lg={12}>
+            <TextField
+              fullWidth
+              id="password"
+              name="password"
+              label="password"
+              variant="outlined"
+              error={Boolean(errors.password) && touched.password}
+              onBlur={() => setFieldTouched('password')}
+              helperText={errors.password}
+            />
+          </Grid>
+          <Grid item xs={12} sm={12} md={12} lg={12}>
+            <TextField
+              fullWidth
+              id="phoneNumber"
+              name="phoneNumber"
+              label="Phone number"
+              variant="outlined"
+              error={Boolean(errors.phoneNumber) && touched.phoneNumber}
+              onBlur={() => setFieldTouched('phoneNumber')}
+              helperText={errors.phoneNumber}
+            />
+          </Grid>
+          <Grid item xs={12} sm={12} md={12} lg={12}>
+            <TextField
+              fullWidth
+              id="email"
+              name="email"
+              label="Email"
+              variant="outlined"
+              error={Boolean(errors.email) && touched.email}
+              onBlur={() => setFieldTouched('email')}
+              helperText={errors.email}
+            />
+          </Grid>
+          
 
-          <Field name="lastName"  label= 'lastName' fullWidth as={TextField}
-             error={errors.lastName} helperText={errors.lastName}/>
-                  
-          <Field name="organization"  label= 'Organization' fullWidth as={TextField}
-             error={errors.organization} helperText={errors.organization}/>
-                  
-          <Field name="email"  label= 'Email' type="email" fullWidth as={TextField}
-             error={errors.email} helperText={errors.email}/>
-                  
-          <Field name="phoneNumber"  label= 'PhoneNumber' fullWidth as={TextField}
-             error={errors.phoneNumber} helperText={errors.phoneNumber}/>
-                  
-            {/* <label htmlFor="">Password</label> <br/> */}
-          <Field name="password" label= 'Password' fullWidth as={TextField} type='password'
-          error ={errors.password} helperText={errors.password}/>    
-             <br/>
+          {/*<Field name="email" type="email" fullWidth*/}
+          {/*variant="outlined"/>*/}
+          {/*{errors.email && touched.email ? <div>{errors.email}</div> : null}*/}
+         
         </Form>
       )}
-    </Formik>  
-   </FormControl> 
-    );
-  }
-
-  export default UsernameInput
+    </Formik>
+  );
+};
+export default UsernameInput;

@@ -66,11 +66,13 @@ const LoginForm = (props) => {
               name="email"
               label="Email"
               variant="outlined"
-              error={Boolean(errors.email) && touched.email}
+              error={errors.email && touched.email}
               onBlur={() => setFieldTouched('email')}
               helperText={errors.email}
             />
+           
           </Grid>
+
           <Grid item xs={12} sm={12} md={12} lg={12}>
             <TextField
               fullWidth
@@ -82,6 +84,7 @@ const LoginForm = (props) => {
               onBlur={() => setFieldTouched('password')}
               helperText={errors.password}
             />
+             
           </Grid>
 
           {/*<Field name="email" type="email" fullWidth*/}

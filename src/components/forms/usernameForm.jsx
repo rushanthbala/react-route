@@ -97,7 +97,7 @@ const UsernameInput = (props) => {
               name="lastName"
               label="Last name"
               variant="outlined"
-              error={Boolean(errors.lastName) && touched.lastName}
+              error={errors.lastName && touched.lastName}
               onBlur={() => setFieldTouched('lastName')}
               helperText={errors.lastName}
             />

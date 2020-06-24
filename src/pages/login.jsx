@@ -24,10 +24,10 @@ class Login extends Component {
                 <Grid container xs={12}  >
                         <Grid xs={3} item/>
                         <Grid xs={6} item><LoginForm/>
-                                  <p className='paragrape'>  Forgot password? <a href="#">RESET</a></p> 
+                                  <p className='paragrape'>  Forgot password? <a href="/username">RESET</a></p> 
                           <Button fullWidth variant="contained" color="primary" type="submit">SIGN IN</Button>
                           <p className='paragrape' style={{textAlign:'center'}}  >Don’t you have an account?
-                           <a href="">SIGNUP</a></p>
+                           <a href="/username">SIGNUP</a></p>
                             </Grid>       
                         <Grid xs={3} item/>
                 </Grid>

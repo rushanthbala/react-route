@@ -2,6 +2,7 @@ import {
     createStyles,
     Theme,
     withStyles,
+    makeStyles
   } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
 import TextField, { TextFieldProps } from '@material-ui/core/TextField';
@@ -12,37 +13,48 @@ import FormControl from '@material-ui/core/FormControl';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
-const BootstrapInput = withStyles((theme: Theme) =>
+
+const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
       'label + &': {
-        marginTop: '0px',
+        marginTop: theme.spacing(3),
+        margin:'100px'
       },
     },
-    inputPlaceholder: { /* Internet Explorer 10-11 */
-      color:'#181D333E'
-     },
-    input: {
-      borderRadius: 4,
-      position: 'relative',
-      background:'#FFFFFF 0% 0% noRepeat paddingBox',
-      backgroundColor: theme.palette.common.white,
-      border: '1px solid #ced4da',
-      letterSpacing:'0px',
-      fontSize: 16,
+    forgotText: {
+      fontSize: "14px",
+      letterSpacing: "0",
+      fontWeight: 400,
+      color: "#4E598348",
+      paddingBottom: "16px",
+    },
+    apiError: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      color: "#ff1744",
+      fontSize: "14px",
+    },
+    formCart: {
+      maxWidth: '430px',
       width: '100%',
-      padding: '10px 12px',
-      opacity: 1,
-      color:'#181D33',
-      // Use the system font instead of the default Roboto font.
-      font:' Regular 14px/18px PT Sans',
-      '&:focus': {
-        boxShadow: `0px 0px 8px #0000000A`,
-        borderColor:'  0.75px solid #3F44511F',
-      },
     },
-  }),
-)(InputBase);
+    Field: {
+      width: "100%",
+      height: "100%",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      margin:' 10px 10px'
+    },
+    label:{
+      color:'red',
+      margin:'200px'
+    }
+  })
+);
+
 
 const SignupSchema = Yup.object().shape({
   firstName: Yup.string()
@@ -56,6 +68,7 @@ const SignupSchema = Yup.object().shape({
 });
 
 export  function CustomizedInputs() {
+  const classes = useStyles();
   return (
       <FormControl fullWidth >
         <Formik
@@ -71,18 +84,24 @@ export  function CustomizedInputs() {
       }}
     >
       {({ errors, touched }) => (
-        <Form>   
-          <label htmlFor="">username</label> <br/>
-          <Field name="firstName"  label= 'username' fullWidth as={TextField} error={errors.firstName} helperText={errors.firstName}/>
+        <Form className={classes.root}>   
+         
+          <Field className={classes.Field} name="firstName"  label= 'username' fullWidth as={TextField}
+           variant='outlined'
+           error={errors.firstName && touched.firstName} helperText={errors.firstName  }  />
           {errors.firstName && touched.firstName ? (
             <div></div>
-          ) : null}  <br/> <br/>
-         <label htmlFor="">Password</label> <br/>
-          <Field name="password" label= 'Password' fullWidth as={TextField} type='password'
-          error ={errors.password} helperText={errors.password}/>
+          ) : null} 
+         
+          <Field className={classes.Field} name="password" label= 'Password' fullWidth as={TextField}
+           type='password'  variant='outlined'
+          // onBlur='()=> {
+          //   setOpen(false);
+          // }'
+          error ={errors.password && touched.password } helperText={errors.password}/>
           {errors.password && touched.password ? (
             <div></div>
-          ) : null} <br/>
+          ) : null} 
         </Form>
       )}
     </Formik>  

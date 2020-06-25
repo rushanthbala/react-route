@@ -1,6 +1,7 @@
 import React from "react";
  import { withStyles } from "@material-ui/core/styles";
- import TextField from "@material-ui/core/TextField";
+ import Button from '@material-ui/core/Button';
+
  const styles = () => ({
    FormHelper: {
      marginLeft: "0px",
@@ -28,7 +29,7 @@ import React from "react";
      padding: "14.5px 14px !important",
    },
  });
- const InputField = ({
+ const InputButton = ({
    classes,
    id,
    name,
@@ -41,7 +42,7 @@ import React from "react";
  }) => {
    return (
      <div className={classes.textField}>
-       <TextField
+       <Button
          fullWidth
          id={id}
          name={name}
@@ -74,4 +75,4 @@ import React from "react";
      </div>
    );
  };
- export default withStyles(styles)(InputField);
+ export default withStyles(styles)(InputButton);

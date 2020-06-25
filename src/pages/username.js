@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import PublicLayout from '../components/layouts/publicLayout';
-import logo from '../assets/image/Complete_your_account.png'
+import logo from '../assets/images/Complete_your_account.png'
 import {Button} from '@material-ui/core';
 import UsernameInput from '../components/forms/UsernameForm'
 
 class Username extends Component {
-  
     state = {  }
     render() { 
         return (

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PublicLayout from '../components/layouts/publicLayout';
 import {Button} from '@material-ui/core';
-import logo from '../assets/image/Set_profile_picture.png'
-import logoName from '../assets/image/Profile.png'
+import logo from '../assets/images/Set_profile_picture.png'
+import logoName from '../assets/images/Profile.png'
 import { Grid } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
 import BootstrapInput from '../components/forms/LoginForm'

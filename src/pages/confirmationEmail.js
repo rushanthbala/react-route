@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PublicLayout from '../components/layouts/publicLayout';
 import { Button } from '@material-ui/core';
-import logo from '../assets/image/a.png'
+import logo from '../assets/images/a.png'
 import logoName from '../assets/Icons/Approval.svg'
 import { Grid } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';

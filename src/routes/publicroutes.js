@@ -3,9 +3,9 @@ import Login from '../pages/login';
 import Profile from '../pages/profile';
 import Completed from'../pages/completed';
 import Failed from'../pages/failed';
-import ForgetPassword from'../pages/forgetpassword';
-import ConfirmationEmail from'../pages/confirmationemail';
-import ChangePassword from'../pages/changepassword';
+import ForgetPassword from'../pages/forgetPassword';
+import ConfirmationEmail from'../pages/confirmationEmail';
+import ChangePassword from'../pages/changePassword';
 
 
 

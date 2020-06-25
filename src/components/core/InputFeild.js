@@ -42,6 +42,7 @@ import React from "react";
    return (
      <div className={classes.textField}>
        <TextField
+        fullWidth
          id={id}
          name={name}
          type={type}

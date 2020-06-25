@@ -4,8 +4,8 @@ import {Button} from '@material-ui/core';
 import logo from '../assets/image/Set_profile_picture.png'
 import logoName from '../assets/image/Profile.png'
 import { Grid } from '@material-ui/core';
-  import FormControl from '@material-ui/core/FormControl';
-  import BootstrapInput from '../components/forms/LoginForm'
+import FormControl from '@material-ui/core/FormControl';
+import BootstrapInput from '../components/forms/LoginForm'
   // import DeleteIcon from '../Assets/image/Icons/camera.svg';
   // import Box from '@material-ui/core/Box';
   

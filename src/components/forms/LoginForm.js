@@ -1,9 +1,9 @@
 import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import TextField from "@material-ui/core/TextField";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+import InputField from '../core/InputFeild'
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -60,21 +60,20 @@ const LoginForm = (props) => {
       {({ errors, touched,setFieldTouched }) => (
         <Form className={classes.formCart}>
           <Grid item xs={12} sm={12} md={12} lg={12}>
-            <TextField
+            <InputField
               fullWidth
-              id="email"
-              name="email"
-              label="Email"
-              variant="outlined"
+              id={"email"}
+              name={"email"}
+              label={'email'}
+              variant={"outlined"}
               error={errors.email && touched.email}
               onBlur={() => setFieldTouched('email')}
               helperText={errors.email}
             />
-           
           </Grid>
 
           <Grid item xs={12} sm={12} md={12} lg={12}>
-            <TextField
+            <InputField
               fullWidth
               id="password"
               name="password"
@@ -83,14 +82,8 @@ const LoginForm = (props) => {
               error={Boolean(errors.password) && touched.password}
               onBlur={() => setFieldTouched('password')}
               helperText={errors.password}
-            />
-             
+            />  
           </Grid>
-
-          {/*<Field name="email" type="email" fullWidth*/}
-          {/*variant="outlined"/>*/}
-          {/*{errors.email && touched.email ? <div>{errors.email}</div> : null}*/}
-         
         </Form>
       )}
     </Formik>

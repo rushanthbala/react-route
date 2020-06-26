@@ -40,7 +40,8 @@ class Login extends Component {
       <PublicLayout
         image={signinImage}
         title="Standard Catalogued Data"
-        text="Large volumes of diverse data systematically categorized based on distinct criteria for easy and effective filtering of the necessary information."
+        text="Large volumes of diverse data systematically categorized based on
+         distinct criteria for easy and effective filtering of the necessary information."
       >
         <div className={classes.cart}>
           <img src={logo} alt="logo" className={classes.logo} />

@@ -11,6 +11,7 @@ import React from "react";
    },
    textField: {
      minHeight: "100px",
+     
    },
    inputRoot: {
      height: "auto",
@@ -29,6 +30,7 @@ import React from "react";
    },
  });
  const InputField = ({
+   fullWidth,
    classes,
    id,
    name,
@@ -50,7 +52,6 @@ import React from "react";
          placeholder={placeholder}
          error={error}
          helperText={error && errorMessage}
-         fullWidth
          variant="outlined"
          FormHelperTextProps={{
            classes: {

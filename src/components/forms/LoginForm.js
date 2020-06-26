@@ -52,7 +52,7 @@ const LoginForm = (props) => {
 
   return (
     <form onSubmit={formik.handleSubmit} className={classes.formCart}>
-      <Grid container item xs={12} sm={12} md={12} lg={12}>
+      {/* <Grid container item xs={12} sm={12} md={12} lg={12} > */}
         <InputField
           id={'email'}
           name={'email'}
@@ -61,13 +61,13 @@ const LoginForm = (props) => {
           placeholder={'Enter email address'}
           error={Boolean(formik.errors.email) && formik.touched.email}
           errorMessage={formik.errors.email}
-          // value={formik.values.email}
+          value={formik.values.email}
           getValue={(vaule) => formik.setFieldValue('email', vaule)}
           onBlur={() => formik.setFieldTouched('email')}
         />
-      </Grid>
+      {/* </Grid> */}
 
-      <Grid container item xs={12} sm={12} md={12} lg={12}>
+      {/* <Grid container item xs={12} sm={12} md={12} lg={12}> */}
         <InputField
           id={'password'}
           name={'password'}
@@ -81,13 +81,13 @@ const LoginForm = (props) => {
           getValue={(vaule) => formik.setFieldValue('password', vaule)}
           onBlur={() => formik.setFieldTouched('password')}
         />
-      </Grid>
+      {/* </Grid> */}
       <Grid container item xs={12} sm={12} md={12} lg={12}>
         <Box className={classes.forgotText}>
           Forgot password? <Link to={'/forgot-password'}>RESET</Link>
         </Box>
       </Grid>
-      <InputButton fullWidth type={'submit'} variant="contained" color="primary">
+      <InputButton>
         Sign In
       </InputButton>
     </form>

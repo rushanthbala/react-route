@@ -61,7 +61,6 @@ const UserNameForm = (props) => {
         password: Yup.string()
         .min(6, 'minimum 6 characters')
         .required('Required'),
-
     }),
     onSubmit: (values) => {
       console.log(values)
@@ -161,7 +160,7 @@ const UserNameForm = (props) => {
         </Box>
       </Grid>
       <InputButton fullWidth type={'submit'} variant="contained" color="primary">
-        Sign In
+          Sign In
       </InputButton>
     </form>
   );

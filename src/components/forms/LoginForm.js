@@ -86,7 +86,7 @@ const LoginForm = (props) => {
           Forgot password? <Link to={'/forgot-password'}>RESET</Link>
         </Box>
       </Grid>
-      <InputButton >
+      <InputButton color='primary'>
         Sign In
       </InputButton>
     </form>

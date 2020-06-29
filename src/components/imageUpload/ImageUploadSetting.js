@@ -1,8 +1,8 @@
 import React from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import logoName from '../../assets/icorns/profile.png'
 import Typography from '@material-ui/core/Typography';
+import InputButton from '../core/InputButton';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -43,9 +43,9 @@ const ImageUploadSetting = (props) => {
       <div>
         <Typography variant="h4" className={classes.tittle} >Set profile picture</Typography>
         <img src={logoName} alt="profile"  className='classes.image' />
-        <Button  disabled className='' fullWidth>Upload</Button>
-        <Button variant="contained" disabled className='' fullWidth>Complete</Button>
-        <Button  className='' fullWidth>Skip</Button>
+        <InputButton  disabled className='' fullWidth>Upload</InputButton>
+        <InputButton variant="contained" disabled className='' fullWidth>Complete</InputButton>
+        <InputButton  className='' fullWidth>Skip</InputButton>
       </div>
   );
 };

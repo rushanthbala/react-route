@@ -10,15 +10,12 @@ import React from "react";
    ...rest
  }) => {
    return (
-     <div className={classes.textField}>
        <Button
          fullWidth='True'
-         color='primary'
          variant="contained"
          type={'submit'}
          {...rest}
        />
-     </div>
    );
  };
  export default withStyles(styles)(InputButton);

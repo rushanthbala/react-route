@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PublicLayout from '../components/layouts/publicLayout';
 import signinImage from '../assets/images/Account.png';
-import logo from '../assets/logos/Logo.png';
 import UserNameForm from '../components/forms/UserNameForm';
 import { withStyles } from '@material-ui/styles';
 

@@ -1,23 +1,53 @@
 import React, { Component } from 'react';
-import _  from 'lodash';
-import LoginForm from '../components/forms/LoginForm';
+import {push}  from 'lodash';
+import InputButton from '../components/core/InputButton';
+import InputField from '../components/core/Input';
+import Grid from '@material-ui/core/Grid';
 
 class UserNameVadidate extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+            UserEmails:['zajith@huex.studio', 'gobi@huex.studio', 'chanthan@huex.studio'],
+            Input:'',
+         }
     }
     render() { 
-     const  UserNamesEmails = ['zajith@huex.studio', 'gobi@huex.studio', 'chanthan@huex.studio']
-     var useremail =this.props.email
+      const Handle =(e)=>{
+         
+          if (true) {
+            alert('hi')
+            this.setState({
+                Input: e.target.value,
+                UserEmails:[...this.state.UserEmails,this.Input],
+              })
+          }
+      
+      }
         return ( 
             <div>
-                 {/* {_.push(UserNamesEmails,'welcome')} */}
-                 {UserNamesEmails.push('rushanth9999@gmail.com')}
-                 {UserNamesEmails}
-            {console.log(this.props.email)}
-            {console.log(this.props.values)}
-           
+                <Grid container item xs={12} sm={12} md={12} lg={12}>
+                    <InputField
+                    id={'email'}
+                    name={'email'}
+                    type={'email'}
+                    label={'Email address'}
+                    placeholder={'Enter email address'}
+                    // error={Boolean(formik.errors.email) && formik.touched.email}
+                    // errorMessage={formik.errors.email}
+                    value={this.state.Input}
+                    // getValue={(vaule) => formik.setFieldValue('email', vaule)}
+                    // onBlur={() => formik.setFieldTouched('email')}
+                    
+                    />
+                </Grid>
+
+                 <InputButton color='primary' onClick={Handle} >
+                    Sign In
+                </InputButton>
+                 {/* {push(UserEmails,'welcome')} */}
+                 {this.state.UserEmails}   
+                 {this.state.Input}        
             </div>
          );
     }

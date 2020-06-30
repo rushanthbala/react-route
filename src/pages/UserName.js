@@ -54,7 +54,6 @@ class UserName extends Component {
          data in various graphical forms for better understanding and rational decision making."
       >
         <div className={classes.cart}>
-          {/* <img src={logo} alt="logo" className={classes.logo} /> */}
           <h1  className={classes.header} >Complete your account</h1>
           <UserNameForm initialValues={initialValues} />
         </div>

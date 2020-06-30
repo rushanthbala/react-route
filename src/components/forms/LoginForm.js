@@ -47,6 +47,15 @@ const LoginForm = (props) => {
     }),
     onSubmit: (values) => {
       console.log(values)
+      //  var title = this.title;
+      // var inputValue = input.value;
+    },
+    handleClick: function() {
+      if (this.refs.myInput !== null) {
+          var input = this.refs.myInput;
+              var inputValue = input.value;
+        alert("Input is", inputValue);
+      }
     },
   });
 
@@ -54,6 +63,7 @@ const LoginForm = (props) => {
     <form onSubmit={formik.handleSubmit} className={classes.formCart}>
       <Grid container item xs={12} sm={12} md={12} lg={12}>
         <InputField
+        // ref={(c) => this.title = c}
           id={'email'}
           name={'email'}
           type={'email'}
@@ -64,8 +74,11 @@ const LoginForm = (props) => {
           value={formik.values.email}
           getValue={(vaule) => formik.setFieldValue('email', vaule)}
           onBlur={() => formik.setFieldTouched('email')}
+          // onChange={{this.onSubmit}  }
         />
       </Grid>
+      {/* <p> {this.formik.initialValues.email} </p> */}
+
       <Grid container item xs={12} sm={12} md={12} lg={12}>
         <InputField
           id={'password'}

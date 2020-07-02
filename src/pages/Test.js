@@ -1,59 +1,49 @@
 import React, { Component } from 'react';
-// import {push}  from 'lodash';
-import InputButton from '../components/core/InputButton';
-import InputField from '../components/core/Input';
-import Grid from '@material-ui/core/Grid';
+import { isEmpty } from 'lodash';
+import LodashTest from '../components/forms/LodashTest';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
 
-class UserNameVadidate extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-            UserEmails:['zajith@huex.studio', 'gobi@huex.studio', 'chanthan@huex.studio'],
-            Input:'',
-         }
+class Test extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userEmails: [],
+    };
+  }
+  addEmail = (abc) => {
+    this.setState((state) => {
+      return {
+        userEmails: [...state.userEmails, abc.email],
+      };
+    });
+  };
+  deleteUserEmail(item) {
+    const newState = this.state.userEmails.slice();
+    if (newState.indexOf(item) > -1) {
+      newState.splice(newState.indexOf(item), 1);
+      this.setState({ userEmails: newState });
     }
-    myChangeHandler = (event) => {
-        this.setState({username: event.target.value});
-      }
-    render() { 
-      const Handle =(e)=>{
-
-          if (true) {
-            alert('hi')
-            this.setState({
-                Input: e.target.value,
-                UserEmails:[...this.state.UserEmails,this.state.username],
-              })
-          }
-      
-      }
-        return ( 
-            <div>
-                <Grid container item xs={12} sm={12} md={12} lg={12}>
-                    <InputField
-                    onChange={this.myChangeHandler}
-                    id={'email'}
-                    name={'email'}
-                    type={'email'}
-                    label={'Email address'}
-                    placeholder={'Enter email address'}
-                    // error={Boolean() && }
-                    // errorMessage={'enter the email'}
-                    value={this.state.Input}
-                    // getValue={(vaule) => formik.setFieldValue('email', vaule)}
-                    // onBlur={() => formik.setFieldTouched('email')}                    
-                    />
-                </Grid>
-                    {this.state.username}
-                 <InputButton color='primary' onClick={Handle} >
-                    Sign In
-                </InputButton>
-                 {/* {push(UserEmails,'welcome')} */}
-                 {this.state.UserEmails}   
-                 {this.state.Input}        
-            </div>
-         );
-    }
+  }
+  render() {
+    const { userEmails } = this.state;
+    return (
+      <div>
+        <LodashTest getFormValue={(values) => this.addEmail(values)} />
+        {isEmpty(userEmails) && <h1>emails not found!</h1>}
+        {!isEmpty(userEmails) &&
+          userEmails.map((item, index) => {
+            return (
+              <div>
+                {item} - {index}
+                <IconButton aria-label="delete" >
+                  <DeleteIcon  onClick={this.deleteUserEmail.bind(this, item) }/>
+                </IconButton>
+              </div>
+            );
+          })}
+      </div>
+    );
+  }
 }
- 
-export default UserNameVadidate;
+export default Test;

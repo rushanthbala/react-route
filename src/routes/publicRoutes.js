@@ -3,6 +3,7 @@ import Login from '../pages/Login';
 import UserName from '../pages/UserName'
 import ImageUpload from '../pages/ImageUpload'
 import UserNameVadidate from '../pages/Test'
+import Moment from '../pages/Moment'
 
 const publicRoutes = [
   {
@@ -27,8 +28,11 @@ const publicRoutes = [
   path:"/lodash",
   component:UserNameVadidate,
   exact:true
+},{
+  path:"/moment",
+  component:Moment,
+  exact:true
 },
-
 ];
 
 export default publicRoutes;

@@ -1,45 +1,28 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import InputButton from '../core/InputButton';
-import input from '../core/Input';
+import React, { Fragment, useState } from "react";
+import { KeyboardDatePicker } from "@material-ui/pickers";
 
-const styles = (theme) => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  formCart: {
-    maxWidth: '430px',
-    width: '100%',
-  },
-});
-
-function DateAndTimePickers(props) {
-  const { classes } = props;
+function KeyboardDatePickerExample(props) {
+  const [selectedDate, handleDateChange] = useState(new Date());
 
   return (
-    <form className={classes.formCart}>
-      <Grid container item xs={12} sm={12} md={12} lg={12}>
-        <input
-          id="date-picker-inline"
-          label="Enter date and time"
-          type="datetime-local"
-          placeholder="enter date and time"
-          className={classes.textField}
-          InputLabelProps={{
-            shrink: false,
-          }}
-        />
-      </Grid>
-      <InputButton color="primary">Count days</InputButton>
-    </form>
+    <Fragment>
+      <KeyboardDatePicker
+        clearable
+        value={selectedDate}
+        placeholder="10/10/2018"
+        onChange={date => handleDateChange(date)}
+        minDate={new Date()}
+        format="MM/dd/yyyy"
+      />
+
+      <KeyboardDatePicker
+        placeholder="2018/10/10"
+        value={selectedDate}
+        onChange={date => handleDateChange(date)}
+        format="yyyy/MM/dd"
+      />
+    </Fragment>
   );
 }
 
-DateAndTimePickers.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(DateAndTimePickers);
+export default KeyboardDatePickerExample;

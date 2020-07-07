@@ -1,17 +1,10 @@
-import 'date-fns';
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import { DateTimePicker } from "@material-ui/pickers";
-import { IconButton, Button} from "@material-ui/core";
-import MoreIcon from "@material-ui/icons/MoreVert";
-import InputButton from "../core/InputButton";
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-} from '@material-ui/pickers';
-
+import { DateTimePicker } from '@material-ui/pickers';
+import InputButton from '../core/InputButton';
+import MomentUtils from '@date-io/moment';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import moment from 'moment';
 export default function MaterialUIPickers() {
   const [selectedDate, setSelectedDate] = React.useState(new Date());
   const [selectedDate2, setSelectedDate2] = React.useState(new Date());
@@ -21,29 +14,36 @@ export default function MaterialUIPickers() {
   const handleDateChange2 = (date) => {
     setSelectedDate2(date);
   };
-  const calculate =() => {
+  const calculate = () => {
     console.log(
-     ' Difference is ${moment(selectedDate).diff(moment{selectedDate2),unitOfTime:days)============'
+      `Difference is ${moment(selectedDate2).diff(
+        moment(selectedDate),
+        'days'
+      )}`
     );
+    // console.log('test is working ----------------', selectedDate , selectedDate2);
+    // console.log(moment(selectedDate2).diff(moment(selectedDate), 'days'));
   };
-return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+  return (
+    <MuiPickersUtilsProvider utils={MomentUtils}>
       <Grid container justify="space-around">
-       <DateTimePicker
+        <DateTimePicker
           label="DateTimePicker"
           inputVariant="outlined"
           value={selectedDate}
           onChange={handleDateChange}
-         />
-         <DateTimePicker
+          format="DD/MM/YYYY HH:mm"
+        />
+        <DateTimePicker
           label="DateTimePicker"
           inputVariant="outlined"
           value={selectedDate2}
           onChange={handleDateChange2}
-         />
-       <InputButton color="primary" onClick="calculate">
-         Calculate interval
-       </InputButton>
+          format="DD/MM/YYYY HH:mm"
+        />
+        <InputButton color="primary" onClick={calculate}>
+          Calculate interval
+        </InputButton>
       </Grid>
     </MuiPickersUtilsProvider>
   );

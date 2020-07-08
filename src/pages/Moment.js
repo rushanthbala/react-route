@@ -1,28 +1,34 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import MaterialUIPickers from '../components/forms/MomentTest';
+import { values } from 'lodash';
+
 class Moment extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    }
+      initialValues: {
+        date1: new Date(),
+        date2: new Date(),
+        differnt:''
+      },
+    };
   }
+
   componentDidMount(){
-    this.countRemain();
   }
-  countRemain(){
-    const dateB = moment('2019-11-11');
-    const dateC = moment('2019-10-11');
-    console.log(`Difference is ${dateB.diff(dateC)} milliseconds`);
-    console.log(`Difference is ${dateB.diff(dateC, 'days')} day(s)`);
-    console.log(`Difference is ${dateB.diff(dateC, 'weeks')} week(s)`);
-    console.log(`Difference is ${dateB.diff(dateC, 'months')} month(s)`);
+  countRemain = (values) => {
+   const differnt = moment(values.date1).diff(moment(values.date2),'days');
+   this.setState({differnt:differnt})
   };
   render() {
     const {  } = this.props;
+    const { initialValues } = this.state;
     return (
       <div>
-        <MaterialUIPickers/>
+        <MaterialUIPickers initialValues = {initialValues}
+        getFormValue={values=>this.countRemain(values)}/>
+              <p>{this.state.differnt} </p>
       </div>
     );
   }

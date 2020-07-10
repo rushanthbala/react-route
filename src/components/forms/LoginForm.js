@@ -7,33 +7,26 @@ import InputField from '../core/Input';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import InputButton from '../core/InputButton';
+// import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
-    forgotText: {
-      fontSize: '14px',
-      letterSpacing: '0',
-      fontWeight: 400,
-      color: '#4E598348',
-      paddingBottom: '16px',
-    },
-    apiError: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#ff1744',
-      fontSize: '14px',
-    },
     formCart: {
       maxWidth: '430px',
       width: '100%',
+      [theme.breakpoints.down('sm')]: {
+        maxWidth: '100%',
+        '& > :nth-child(n+1)': {
+          padding: '0 16px',
+        },
+      },
     },
   })
 );
 
 const LoginForm = (props) => {
+  // const matches = useMediaQuery('(min-width:100px)');
   const classes = useStyles();
-
   const formik = useFormik({
     initialValues: {
       email: props.initialValues.email,
@@ -61,7 +54,7 @@ const LoginForm = (props) => {
 
   return (
     <form onSubmit={formik.handleSubmit} className={classes.formCart}>
-      <Grid container item xs={12} sm={12} md={12} lg={12}>
+      <Grid container item xs={12} sm={12} md={12} lg={12} >
         <InputField
         // ref={(c) => this.title = c}
           id={'email'}
@@ -99,9 +92,11 @@ const LoginForm = (props) => {
           Forgot password? <Link to={'/forgot-password'}>RESET</Link>
         </Box>
       </Grid>
+      <Grid container item xs={12} sm={12} md={12} lg={12}>
       <InputButton color='primary'>
         Sign In
       </InputButton>
+      </Grid>
     </form>
   );
 };

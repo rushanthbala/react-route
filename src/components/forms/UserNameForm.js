@@ -27,6 +27,12 @@ const useStyles = makeStyles((theme) =>
     formCart: {
       maxWidth: '430px',
       width: '100%',
+      [theme.breakpoints.down('sm')]: {
+        maxWidth: '100%',
+         '& > :nth-child(n+1)': {
+          padding: '0 16px',
+        },
+      },
     },
   })
 );
@@ -159,9 +165,12 @@ const UserNameForm = (props) => {
           Forgot password? <Link to={'/forgot-password'}>RESET</Link>
         </Box>
       </Grid>
-      <InputButton fullWidth type={'submit'} variant="contained" color="primary">
-          Sign In
-      </InputButton>
+      <Grid container item xs={12} sm={12} md={12} lg={12}>
+        <InputButton fullWidth type={'submit'} variant="contained" color="primary">
+            Sign In
+        </InputButton>
+      </Grid>
+
     </form>
   );
 }; 

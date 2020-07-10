@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import MaterialUIPickers from '../components/forms/MomentTest';
-import { values } from 'lodash';
 
 class Moment extends Component {
   constructor(props) {
@@ -22,7 +21,7 @@ class Moment extends Component {
    this.setState({differnt:differnt})
   };
   render() {
-    const {  } = this.props;
+    // const {  } = this.props;
     const { initialValues } = this.state;
     return (
       <div>
